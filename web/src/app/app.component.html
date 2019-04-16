@@ -1,0 +1,27 @@
+<nz-layout class="owl-layout">
+  <nz-header style="position:fixed; width:100%">
+    <div class="logo"></div>
+  </nz-header>
+  <nz-content class="owl-content">
+    <div nz-row>
+      <div class="qrcode-wrapper" nz-col nzSpan="6">
+        <qrcode [qrdata]="connectQrCodeId" [size]="160" [level]="'M'"></qrcode>
+        <div>{{connectQrCodeId}}</div>
+      </div>
+      <div class="log-wrapper" nz-col nzSpan="18">
+        <div>
+          <div *ngFor="let item of logMessageArray | async">
+            {{item.type}} | {{item.payload}}
+          </div>
+        </div>
+        <!-- <nz-list [nzDataSource]="logMessageArray | async" nzBordered nzSize="small"
+          [nzRenderItem]="item">
+          <ng-template #item let-item>
+            <nz-list-item [nzContent]="item.payload"></nz-list-item>
+          </ng-template>
+        </nz-list> -->
+      </div>
+    </div>
+  </nz-content>
+  <nz-footer style="text-align: center;">Ant Design ©2019 Implement By Angular</nz-footer>
+</nz-layout>
