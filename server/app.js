@@ -10,8 +10,9 @@ const app = express()
 const server = require('http').createServer(app)
 const io = require('socket.io')(server)
 
-const nspList = {
-
+const FUNCTIONTYPE = '[object Function]'
+function type(obj) {
+  return Object.prototype.toString.call(obj)
 }
 
 app.use(cors({
@@ -40,7 +41,10 @@ io.on('connection', function(socket){
     .on('request', (payload, ack) => {
       console.log(`收到信息${payload}`)
       socket.broadcast.emit('notification', payload)
-      ack('server 收到信息')
+      
+      if(ack && type(ack) == FUNCTIONTYPE){
+        ack('server 收到信息')
+      }
     })
   .emit('notification', '连接成功')
 })
