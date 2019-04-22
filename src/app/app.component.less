@@ -5,20 +5,48 @@
   padding:0 50px;
   margin-top:64px;
   .qrcode-wrapper {
+    background: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+  }
+  
+  .tips-wrapper {
+
+    background: white;
+    padding: 20px;
+    height: 300px;
+    margin-top: 20px;
   }
 
-  .log-wrapper {
-    .log-panel {
-      height: 70vh;
-      overflow: scroll;
-    }
+  .details {
+    // height: 70vh;
+    // overflow: scroll;
   }
 }
 
 .logo {
   width: 120px;
   height: 31px;
-  background: rgba(255, 255, 255, 0.2);
   margin: 16px 24px 16px 0;
   float: left;
+  line-height: 31px;
+  font-size: 31px;
+  width: 120px;
+  color: rgba(255, 255, 255, 0.8)
+}
+
+.link {
+  line-height: 31px;
+  font-size: 31px;
+  float: right;
+  margin: 16px 0 16px 24px;
+  a {
+
+  color: rgba(255, 255, 255, 0.8) !important;
+  }
 }

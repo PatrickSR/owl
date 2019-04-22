@@ -21,10 +21,10 @@ export class LogMessage {
   }
 
   private generateRequestSimpleMsg(): string {
-    return `[${Moment().format('YYYY-MM-DD HH:mm:ss')}] 请求：${this.message.request.url} | 状态码：${this.message.res.statusCode}`;
+    return `[${Moment().format('HH:mm:ss')}] 请求：${this.message.request.url} | 状态码：${this.message.res.statusCode}`;
   }
 
   private generateConsoleSimpleMsg(): string {
-    return `[${Moment().format('YYYY-MM-DD HH:mm:ss')}] ${this.message.toString().substring(0, 50)}`;
+    return `[${Moment().format('HH:mm:ss')}] ${this.message.toString().substring(0, 50)}`;
   }
 }
