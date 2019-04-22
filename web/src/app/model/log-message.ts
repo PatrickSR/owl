@@ -1,4 +1,4 @@
-import Moment from 'moment';
+import * as Moment from 'moment';
 export class LogMessage {
   // console or request
   type: string;
