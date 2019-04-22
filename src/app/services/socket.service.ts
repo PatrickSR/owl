@@ -16,7 +16,7 @@ export class SocketService {
   }
 
   public connectSocketIO(key): Observable<LogMessage> {
-    this.socket = io(`http://http://134.175.178.149:3000?roomId=${key}&from=web`);
+    this.socket = io(`http://134.175.178.149:3000?roomId=${key}&from=web`);
     return new Observable(observer => {
 
       this.socket.on('connect', () => {
