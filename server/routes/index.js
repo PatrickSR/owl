@@ -8,10 +8,8 @@ router.get('/', function(req, res, next) {
   })
 })
 
-router.get('/nsp', function(req, res, next) {
-  res.json({
-    nsp: `mp-${new Date().getTime()}`
-  })
+router.get('/rooms', function(req, res, next) {
+  res.json(res.roomsInfo)
 })
 
 module.exports = router

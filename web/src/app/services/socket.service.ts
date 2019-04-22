@@ -15,19 +15,20 @@ export class SocketService {
     this.logMessageArray = [];
   }
 
-  public connectSocketIO(token): Observable<LogMessage[]> {
-    this.socket = io(`http://134.175.178.149:3000?token=${token}`);
+  public connectSocketIO(key): Observable<LogMessage> {
+    this.socket = io(`http://192.168.2.165:3000?roomId=${key}&from=web`);
     return new Observable(observer => {
 
       this.socket.on('connect', () => {
-        this.logMessageArray.push(new LogMessage('连接成功'));
-        observer.next(this.logMessageArray);
+        observer.next(new LogMessage({
+          message: '连接成功',
+          type: 'console'
+        }));
       });
 
       this.socket.on('notification', payload => {
-        if (!payload.message) { return; }
-        this.logMessageArray.push(new LogMessage(payload.message, payload.type));
-        observer.next(this.logMessageArray);
+        // if (!payload.message) { return; }
+        observer.next(new LogMessage(payload));
       });
 
     });
